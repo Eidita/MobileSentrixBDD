@@ -1,0 +1,87 @@
+					How To Build BDD framework
+
+Step-1
+build maven framework appropriately
+Step -2
+configure pom.xml file
+Properties—		>java version
+Dependencies-	->selenium, WebDriverManger, cucumber,junit
+plug-ins--->		sure fire plugin
+Step-3 		add cucumber plug-in
+Step-4 		build feature folder and feature file.Feature files are the core of cucumber data driven testing, as they define the scenarios, steps, and examples that guide the automation and validation of your application's behavior.
+
+step-5 		convert into cucumber frame work
+step -6 		Develop cucumber runner file
+step-7 		configure runner file. Executes the .feature files and coordinates the steps defined in those .feature files with the corresponding step definitions.
+step-8 		run from runner file
+step-9 		copy the trace from junit
+step 10-		 build step defination package./we call it from page site and put all the method //we are segregeation it
+step 11-		 build test defination class
+step 12-		 paste the trace and fix it
+step 13-		 make sure glue path is right.
+
+
+					How To Build Runner File
+
+Step-1 build a runner package
+Step-2 Develop a runner class
+@RunWith=it is basicly junit runner
+(Cucumber.class)==run anything with .feature extension
+@CucumberOptions()==filter and designing run configuration
+plug in== reporting== cucumber report
+plugin={"pretty", "html:target/facebookReport.html","xml:target/facebookReport.xml"}
+what is feature=file path where all the feature files are
+most of the time it will be folder path
+but it is possible to go any level
+src/test/resources/features/login.feature
+what is glue==path of the step defination
+most of the time it will be folder path
+"com.facebook.stepDefinations"
+but it is possible to go any level
+"com.facebook.stepDefinations.LoginStep
+what is tag== grouping such as @smoke
+can you run mulitple tag at the same time=yes{"@smoke", "@regrassion"}
+tagging condition= and, or, include, exclude
+
+						How To Develop Cucumber Scenario
+
+
+build a folder--optional(in side the resources folder)
+build feature with .feature extension
+
+As a user== precondition==given
+I want to do something==action==When
+so that it will work== validation ==Then
+As a tester I open facebook application to enter my valid user name and password and I click login button so that i can be logged in
+@RunWith(Cucumber.class)
+@RunWith== run with Junit== follow Junit rules
+(Cucumber.class)== run those file who has .feature extension
+
+
+						Scenario Outline
+
+step -1
+.feature file
+step-2 write appropriate user input coulum name
+in the <> such as <browser>
+step-3 build examples
+Examples:
+| browser | Url | userName | password |
+
+
+
+						. feature file
+step definition
+Runner file
+Base step
+Login pages or registration pages
+
+
+							BDD POM
+properties=17
+Dependencies
+Selenium
+Bonigercia
+Cucumber
+Cucumber junit
+Junit jupiter api
